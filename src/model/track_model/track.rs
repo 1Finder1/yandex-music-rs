@@ -29,8 +29,8 @@ pub struct Track {
     pub available_for_premium_users: Option<bool>,
     pub lyrics_available: Option<bool>,
     pub best: Option<bool>,
-    #[serde(deserialize_with = "crate::model::utils::string_to_i32")]
-    pub real_id: i32,
+    #[serde(deserialize_with = "crate::model::utils::string_to_i32_options")]
+    pub real_id: Option<i32>,
     pub og_image: Option<String>,
     #[serde(rename = "type")]
     pub item_type: Option<String>,
