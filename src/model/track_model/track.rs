@@ -15,7 +15,7 @@ pub struct PartialTrack {
     pub timestamp: String,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Track {
     #[serde(deserialize_with = "crate::model::utils::string_to_i32")]
@@ -76,6 +76,12 @@ pub struct Track {
     #[serde(default)]
     pub special_audio_resources: Vec<String>,
     pub player_id: Option<String>,
+}
+
+impl PartialEq for Track {
+    fn eq(&self, other: &Self) -> bool {
+        self.id == other.id
+    }
 }
 
 #[derive(Debug, PartialEq, Clone, Deserialize)]

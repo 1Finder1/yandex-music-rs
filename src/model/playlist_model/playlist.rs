@@ -3,8 +3,9 @@ use serde::Deserialize;
 use crate::model::{
     info_model::tag::Tag, track_model::cover::Cover, user_model::user::User,
 };
+use crate::model::track_model::track::Track;
 
-#[derive(Debug, Eq, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Playlist {
     pub playlist_uuid: String,
@@ -30,6 +31,7 @@ pub struct Playlist {
     pub track_count: i32,
     pub uid: i32,
     pub visibility: String,
+    pub tracks: Vec<Track>,
     #[serde(default)]
     pub likes_count: i32,
     #[serde(default)]
