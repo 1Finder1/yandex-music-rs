@@ -6,7 +6,6 @@ where
     D: Deserializer<'de>,
 {
     let value = Deserialize::deserialize(deserializer)?;
-    println!("{}", value);
     match value {
         serde_json::Value::Number(num) => Ok(num.as_i64().unwrap() as i32),
         serde_json::Value::String(s) => {

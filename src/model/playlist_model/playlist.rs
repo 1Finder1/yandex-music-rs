@@ -1,11 +1,11 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::model::{
     info_model::tag::Tag, track_model::cover::Cover, user_model::user::User,
 };
 use crate::model::track_model::track::Track;
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Playlist {
     pub playlist_uuid: String,

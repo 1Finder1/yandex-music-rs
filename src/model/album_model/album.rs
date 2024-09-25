@@ -1,4 +1,4 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::model::{
     artist_model::artist::Artist,
@@ -6,7 +6,7 @@ use crate::model::{
     track_model::{custom_wave::CustomWave, label::Label, track::Track},
 };
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Album {
     pub id: i32,
@@ -69,7 +69,7 @@ pub struct Album {
     pub pager: Option<Pager>,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 pub struct TrackPosition {
     pub volume: i32,
     pub index: i32,

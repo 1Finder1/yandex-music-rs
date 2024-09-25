@@ -15,7 +15,7 @@ pub struct PartialTrack {
     pub timestamp: String,
 }
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Track {
     #[serde(deserialize_with = "crate::model::utils::string_to_i32")]
@@ -84,7 +84,7 @@ impl PartialEq for Track {
     }
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TrackId {
     pub id: Option<i32>,
@@ -93,7 +93,7 @@ pub struct TrackId {
     pub from: Option<String>,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TrackWithAds {
     #[serde(rename = "type")]
@@ -108,7 +108,7 @@ pub struct TrackShort {
     pub album_id: String,
 }
 
-#[derive(Debug, Eq, PartialEq, Clone, Deserialize)]
+#[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TrackMajor {
     pub id: i32,
@@ -116,13 +116,13 @@ pub struct TrackMajor {
     pub pretty_name: Option<String>,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 pub struct TrackR128 {
     pub i: f32,
     pub tp: f32,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TrackFade {
     pub in_start: f32,
@@ -131,7 +131,7 @@ pub struct TrackFade {
     pub out_stop: f32,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TrackDerivedColors {
     pub average: String,
@@ -140,20 +140,20 @@ pub struct TrackDerivedColors {
     pub accent: String,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TrackLyricsInfo {
     pub has_available_sync_lyrics: bool,
     pub has_available_text_lyrics: bool,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 pub struct TrackNormalization {
     pub gain: f32,
     pub peak: i32,
 }
 
-#[derive(Debug, Eq, PartialEq, Clone, Deserialize)]
+#[derive(Debug, Eq, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TrackMetadata {
     pub album: Option<String>,

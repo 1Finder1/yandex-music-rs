@@ -1,6 +1,6 @@
 use std::fmt::Display;
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::model::{
     info_model::clip::TrackClip, info_model::pager::Pager,
@@ -12,7 +12,7 @@ use crate::model::{
     track_model::custom_wave::CustomWave, track_model::track::Track,
 };
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Artist {
     #[serde(deserialize_with = "crate::model::utils::string_to_i32")]
@@ -51,7 +51,7 @@ pub struct Artist {
     pub end_date: Option<String>,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(untagged)]
 pub enum Decomposed {
     String(String),
@@ -133,7 +133,7 @@ pub struct BandlinkLink {
     pub img_url: String,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ArtistCounts {
     pub tracks: i32,
@@ -142,7 +142,7 @@ pub struct ArtistCounts {
     pub also_tracks: i32,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ArtistRatings {
     pub month: i32,
@@ -150,14 +150,14 @@ pub struct ArtistRatings {
     pub day: Option<i32>,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ArtistDescription {
     pub text: String,
     pub uri: String,
 }
 
-#[derive(Debug, PartialEq, Clone, Deserialize)]
+#[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ArtistLink {
     pub title: String,
