@@ -39,7 +39,6 @@ impl YandexMusicClient {
         let response = self
             .get(&PlaylistRequest::new(user_id, kind).path())
             .await?;
-
         Ok(serde_json::from_value::<Playlist>(response)?)
     }
 }

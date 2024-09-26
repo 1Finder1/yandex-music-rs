@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use crate::model::{
     info_model::tag::Tag, track_model::cover::Cover, user_model::user::User,
 };
-use crate::model::track_model::track::Track;
+use crate::model::track_model::track::{PlaylistTrack};
 
 #[derive(Debug, PartialEq, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -32,7 +32,7 @@ pub struct Playlist {
     pub uid: i32,
     pub visibility: String,
     #[serde(default)]
-    pub tracks: Vec<Track>,
+    pub tracks: Vec<PlaylistTrack>,
     #[serde(default)]
     pub likes_count: i32,
     #[serde(default)]

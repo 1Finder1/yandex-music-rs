@@ -29,8 +29,9 @@ pub struct Track {
     pub available_for_premium_users: Option<bool>,
     pub lyrics_available: Option<bool>,
     pub best: Option<bool>,
-    // #[serde(deserialize_with = "crate::model::utils::string_to_i32_options")]
-    // pub real_id: Option<i32>,
+    #[serde(default)]
+    #[serde(deserialize_with = "crate::model::utils::string_to_i32")]
+    pub real_id: i32,
     pub og_image: Option<String>,
     #[serde(rename = "type")]
     pub item_type: Option<String>,
@@ -79,6 +80,23 @@ pub struct Track {
 }
 
 impl PartialEq for Track {
+    fn eq(&self, other: &Self) -> bool {
+        self.id == other.id
+    }
+}
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PlaylistTrack {
+    id: i32,
+    original_index: i32,
+    timestamp: String,
+    track: Track,
+    recent: bool,
+    original_shuffle_index: i32
+}
+
+impl PartialEq for PlaylistTrack {
     fn eq(&self, other: &Self) -> bool {
         self.id == other.id
     }
