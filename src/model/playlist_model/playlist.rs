@@ -31,7 +31,8 @@ pub struct Playlist {
     pub track_count: i32,
     pub uid: i32,
     pub visibility: String,
-    pub tracks: Option<Vec<Track>>,
+    #[serde(default)]
+    pub tracks: Vec<Track>,
     #[serde(default)]
     pub likes_count: i32,
     #[serde(default)]
