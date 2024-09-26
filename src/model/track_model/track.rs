@@ -88,12 +88,12 @@ impl PartialEq for Track {
 #[derive(Debug, Clone, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct PlaylistTrack {
-    id: i32,
-    original_index: i32,
-    timestamp: String,
-    track: Track,
-    recent: bool,
-    original_shuffle_index: i32
+    pub id: i32,
+    pub original_index: i32,
+    pub timestamp: String,
+    pub track: Track,
+    pub recent: bool,
+    pub original_shuffle_index: i32
 }
 
 impl PartialEq for PlaylistTrack {
